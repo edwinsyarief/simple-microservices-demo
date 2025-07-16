@@ -1,11 +1,13 @@
 # Simple Microservices Demo
 
 ## Introduction
+
 We're building a system that stores information about users and properties that are available to rent or buy. The system is designed as a set of small web applications that each perform a specific task (otherwise known as "microservices").
 
 Please read [the Wikipedia article about microservices](https://en.wikipedia.org/wiki/Microservices) if you are not familar with the architecture before.
 
 ### Architecture
+
 This system comprises of 3 independent web applications:
 
 - **Listing service:** Stores all the information about properties that are available to rent and buy (**Python**)
@@ -19,6 +21,7 @@ Services are free to store the data in any format they wish (in a SQL table, or 
 How does the mobile app or user-facing website access the data in the system? This is where the public API layer comes in. The public API layer is a web application that contains APIs that can be called by external clients/applications. This web application is responsible for interacting with the listing/user service through its APIs to pull out the relevant data and return it to the external caller in the appropriate format.
 
 ### 1) Listing Service
+
 The listing service stores information about properties that are available to rent or buy. These are the fields available in a listing object:
 
 - `id (int)`: Listing ID _(auto-generated)_
@@ -29,7 +32,9 @@ The listing service stores information about properties that are available to re
 - `updated_at (int)`: Updated at timestamp. In microseconds _(auto-generated)_
 
 #### APIs
+
 ##### Get all listings
+
 Returns all the listings available in the db (sorted in descending order of creation date). Callers can use `page_num` and `page_size` to paginate through all the listings available. Optionally, you can specify a `user_id` to only retrieve listings created by that user.
 
 ```
@@ -58,6 +63,7 @@ Response:
 ```
 
 ##### Create listing
+
 ```
 URL: POST /listings
 Content-Type: application/x-www-form-urlencoded
@@ -83,6 +89,7 @@ Response:
 ```
 
 ### 2) User Service
+
 The user service stores information about all the users on the system. Fields available in the user object:
 
 - `id (int)`: User ID _(auto-generated)_
@@ -91,7 +98,9 @@ The user service stores information about all the users on the system. Fields av
 - `updated_at (int)`: Updated at timestamp. In microseconds _(auto-generated)_
 
 #### APIs
+
 ##### Get all users
+
 Returns all the users available in the db (sorted in descending order of creation date).
 
 ```
@@ -117,6 +126,7 @@ Response:
 ```
 
 ##### Get specific user
+
 Retrieve a user by ID
 ```
 URL: GET /users/{id}
@@ -135,6 +145,7 @@ Response:
 ```
 
 ##### Create user
+
 ```
 URL: POST /users
 Content-Type: application/x-www-form-urlencoded
@@ -156,9 +167,11 @@ Response:
 ```
 
 ### 3) Public APIs
+
 These are the public facing APIs that can be called by external clients such as mobile applications or the user facing website.
 
 ##### Get listings
+
 Get all the listings available in the system (sorted in descending order of creation date). Callers can use `page_num` and `page_size` to paginate through all the listings available. Optionally, you can specify a `user_id` to only retrieve listings created by that user.
 
 ```
@@ -192,6 +205,7 @@ user_id = str # Optional
 ```
 
 ##### Create user
+
 ```
 URL: POST /public-api/users
 Content-Type: application/json
@@ -215,6 +229,7 @@ Response:
 ```
 
 ##### Create listing
+
 ```
 URL: POST /public-api/listings
 Content-Type: application/json
@@ -243,17 +258,20 @@ Response:
 
 ## Setup
 
-The first priority would be to get the listing service up and running! You will need Python 3 to run the example. The second priority is to run the user service and the last is the public api. Both user service and public API requires Go to run, make sure it is already installed. If not you can go to `https://go.dev/dl` and download the installer.
+The first priority would be to get the listing service up and running! You will need Python 3 to run the example. The second priority is to run the user service and the last is the public api. Both user service and public API requires `Go` to run, make sure it is already installed or you can download the `Go` installer at `https://go.dev/dl`.
 
 ### Run the listing service
 
 ### Install pip
+
 pip is a handy tool to install libraries/dependencies for your python programs. pip should already come installed on your system. Head over to https://pip.pypa.io/en/stable/installing/ for steps to install pip if it's not available.
 
 ### Install virtualenv
+
 We use virtualenv to create an isolated running environment to install dependencies and launch the web application. Head over to https://virtualenv.pypa.io/en/latest/installation.html for instructions to install virtualenv.
 
 ### Install dependencies
+
 Once you have pip and virtualenv set up, we can proceed to create the environment to run our web applications:
 
 ```bash
@@ -287,6 +305,7 @@ The following settings that can be configured via command-line arguments when st
 - `debug`: Runs the application in debug mode. Applications running in debug mode will automatically reload in response to file changes. (default: `true`)
 
 ### Create listings
+
 Time to add some data into the listing service!
 
 ```bash
