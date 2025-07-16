@@ -8,9 +8,9 @@ Please read [the Wikipedia article about microservices](https://en.wikipedia.org
 ### Architecture
 This system comprises of 3 independent web applications:
 
-- **Listing service:** Stores all the information about properties that are available to rent and buy (Python)
-- **User service:** Stores information about all the users in the system (Go)
-- **Public API layer:** Set of APIs that are exposed to the web/public (Go)
+- **Listing service:** Stores all the information about properties that are available to rent and buy (**Python**)
+- **User service:** Stores information about all the users in the system (**Go**)
+- **Public API layer:** Set of APIs that are exposed to the web/public (**Go**)
 
 The listing service and user service are backed by relevant databases to persist data. The services are essentially a wrapper around their respective databases to manipulate the data stored in them. For this reason, the services are not intended to be directly accessible by any external client/application.
 
