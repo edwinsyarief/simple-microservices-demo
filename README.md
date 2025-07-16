@@ -5,8 +5,6 @@ We're building a system that stores information about users and properties that 
 
 Please read [the Wikipedia article about microservices](https://en.wikipedia.org/wiki/Microservices) if you are not familar with the architecture before.
 
-Some parts of the system have been built already. We need your help to complete the rest!
-
 ### Architecture
 This system comprises of 3 independent web applications:
 
