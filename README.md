@@ -1,10 +1,10 @@
-# 99.co Backend Test
+# Simple Microservices Demo
 
 This repo contains 3 folders:
 
-- listing-service (python - default test repo)
-- user-service (golang - new)
-- public-api (golang - new)
+- listing-service (python)
+- user-service (golang)
+- public-api (golang)
 
 Ideally these folder must be separated folder.
 
@@ -14,7 +14,7 @@ This section contains steps to run each back-end application
 
 ### Listing Service
 
-To run listing service already explained in the listing-service `README.md`
+To run listing service already explained in the listing-service/README.md
 
 ### User Service
 
@@ -24,6 +24,6 @@ Open folder user-service in the VSCode, then go to **Terminal -> Run Task -> Run
 
 Open folder public-api in the VSCode, then go to **Terminal -> Run Task -> Run Go Public API**
 
-## Testing The Back-end Application
+## Testing
 
-I have included `endpoints.postman_collection.json` which contains collection of all endpoints, just import the collection into postman and execute each request.
+Postman collection included: `endpoints.postman_collection.json` which contains collection of all endpoints, just import the collection into postman and execute each request.
