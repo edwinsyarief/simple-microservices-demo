@@ -242,9 +242,10 @@ Response:
 ```
 
 ## Setup
-The listing service has been built already. You need to build the remaining two components: the user service and the public API layer. 
 
-The first priority would be to get the listing service up and running! You will need Python 3 to run the example.
+The first priority would be to get the listing service up and running! You will need Python 3 to run the example. The second priority is to run the user service and the last is the public api. Both user service and public API requires Go to run, make sure it is already installed. If not you can go to `https://go.dev/dl` and download the installer.
+
+### Run the listing service
 
 ### Install pip
 pip is a handy tool to install libraries/dependencies for your python programs. pip should already come installed on your system. Head over to https://pip.pypa.io/en/stable/installing/ for steps to install pip if it's not available.
@@ -274,7 +275,6 @@ You'll see `(env)` show up at the beginning of the command line if you've starte
 tornado==6.1
 ```
 
-### Run the listing service
 Now we're all set to run the listing service!
 
 ```bash
@@ -298,9 +298,13 @@ curl localhost:8888/listings -XPOST \
 
 ### Run The User Service
 
-Open folder user-service in the VSCode, then go to **Terminal -> Run Task -> Run Go User Service**
+Open folder user-service in the VSCode, and then open the terminal which path into the current user-service folder, and run `go mod tidy` to install all dependencies.
+
+Then go to VSCode menu **Terminal -> Run Task -> Run Go User Service**
 
 ### Run The Public API
+
+Open folder public-api in the VSCode, and then open the terminal which path into the current public-api folder, and run `go mod tidy` to install all dependencies.
 
 Open folder public-api in the VSCode, then go to **Terminal -> Run Task -> Run Go Public API**
 
